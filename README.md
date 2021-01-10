@@ -1,4 +1,4 @@
-# Description du dépôt Git demers/docker-postgresql-pgadmin
+# Description du dépôt Git demers/docker-postgresql-pgadmin-mongo
 
 Ce conteneur contient:
 
