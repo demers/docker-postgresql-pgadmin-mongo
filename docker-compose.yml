@@ -1,8 +1,10 @@
+# Inspiré de https://medium.com/faun/managing-mongodb-on-docker-with-docker-compose-26bf8a0bbae3
 version: "3.7"
 
 services:
   db:
     image: postgres:latest
+    container_name: postgres
     restart: always
     environment:
       POSTGRES_DB: postgres
@@ -16,6 +18,7 @@ services:
 
   pgadmin:
     image: dpage/pgadmin4
+    container_name: pgadmin
     restart: always
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@admin.admin
@@ -28,7 +31,25 @@ services:
     links:
       - "db:pgsql-server"
 
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    environment:
+    - MONGO_INITDB_DATABASE=mongodb
+    - MONGO_INITDB_ROOT_USERNAME=mongo
+    - MONGO_INITDB_ROOT_PASSWORD=mongo
+    volumes:
+      - mongo-init:/docker-entrypoint-initdb.d/init-mongo-js:ro
+      - mongo-volume:/data/db
+    restart: always
+    ports:
+      - "27017-27019:27017-27019"
+
 volumes:
   db-data:
 
   pgadmin-data:
+
+  mongo-volume:
+
+  mongo-init:
