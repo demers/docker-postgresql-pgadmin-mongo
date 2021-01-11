@@ -63,9 +63,9 @@ Vous devez ouvrir une console Bash (pour Linux) ou Powershell (pour Windows) et 
 
 
 ```
-git clone https://github.com/demers/docker-postgresql-pgadmin.git
+git clone https://github.com/demers/docker-postgresql-pgadmin-mongo.git
 
-cd docker-postgresql-pgadmin
+cd docker-postgresql-pgadmin-mongo
 
 docker-composer up -d
 ```
