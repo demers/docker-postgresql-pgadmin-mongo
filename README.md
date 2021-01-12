@@ -67,7 +67,7 @@ git clone https://github.com/demers/docker-postgresql-pgadmin-mongo.git
 
 cd docker-postgresql-pgadmin-mongo
 
-docker-composer up -d
+docker-compose up -d
 ```
 
 Si vous êtes sous Linux, il se peut que vous aillez à modifier le fichier
