@@ -142,6 +142,16 @@ docker cp pgadmin:/var/lib/pgadmin/storage/admin_admin.admin/monarchive.backup m
 
 Le fichier sera créé dans le dossier courant sur votre ordinateur.
 
+Il est encore plus rapide de créer une archive d'une base de données par la
+commande `pg_dump` comme par exemple (dans ce cas-ci, l'archive est pour la base
+de donnée `postgres`):
+
+```
+docker exec -ti postgres pg_dump -Fc --host db --username admin postgres > monarchive.backup
+```
+
+A l'exécution, on tape le mot de passe `secret` et le fichier sera créé.
+
 # MongoDB Compass
 
 Il est possible d'accéder à la base de données Mongo par l'application native
