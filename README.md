@@ -124,6 +124,24 @@ base de données par la commande suivante:
 psql -h localhost postgres admin
 ```
 
+# Comment récupérer une archive PG à partir de l'interface PGAdmin
+
+PGAdmin offre l'option de créer des archives (backup).
+Voir la documentation à https://www.pgadmin.org/docs/pgadmin4/development/backup_and_restore.html
+
+Quand une archive est créée, le fichier se place dans le conteneur.  Si vous
+décidez de créer une archive dans le dossier racine de PGAdmin ("/").  Par exemple, voici une
+archive enregistrée dans le conteneur: "/monarchive.backup".
+
+Pour récupérer (copier) cette archive de type "backup", dans Powershell, on se place dans le dossier
+où nous voulons notre archive et on exécute la commande Docker:
+
+```
+docker cp pgadmin:/var/lib/pgadmin/storage/admin_admin.admin/monarchive.backup monarchive.backup
+```
+
+Le fichier sera créé dans le dossier courant sur votre ordinateur.
+
 # MongoDB Compass
 
 Il est possible d'accéder à la base de données Mongo par l'application native
