@@ -2,7 +2,7 @@
 
 Ce conteneur contient:
 
-- PostGreSQL 13.1
+- PostGreSQL 14.1
 - PGAdmin 4 (administration web de PG)
 - MongoDB
 
@@ -15,8 +15,8 @@ Pour la construction de ce dépôt, nous nous sommes inspiré sur https://linuxh
 Vous devez avoir sur votre système:
 
 - Windows Pro et Education (si vous êtes sous Windows)
-- (optionnel) Linux (meilleur choix que Windows pour Docker)
-- Chocolatey (si vous êtes sous Windows 10)
+- (optionnel) Linux (meilleur choix que Windows pour Docker en passant)
+- Chocolatey (si vous êtes sous Windows)
 - Docker 17+
 - Docker compose 2+
 - Au moins 1 Go d'espace disque
@@ -31,9 +31,9 @@ par exemple, voir cette méthode https://www.lifewire.com/upgrade-windows-10-hom
 Vous devez vous assurer que l'option de virtualisation dans votre BIOS est bien
 activée.
 
-Il faut d'abord activer Hyper-V.  Voir https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v ou https://www.poweronplatforms.com/enable-disable-hyper-v-windows-10-8/
+Il faut d'abord activer Hyper-V.  Voir https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v ou https://www.poweronplatforms.com/enable-disable-hyper-v-windows-10-8/  Sous Windows 11, consultez https://allthings.how/how-to-enable-hyper-v-on-windows-11/
 
-Il suffit d'exécuter la commande Powershell suivante:
+Il suffit d'exécuter la commande Powershell suivante sous Windows 10 ou 11:
 
 ```
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
@@ -41,7 +41,13 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 
 Il faut redémarrer l'ordinateur après.
 
-On installe Docker en suivant les étapes de: https://runnable.com/docker/install-docker-on-windows-10
+### Installer Docker
+
+On installe Docker en suivant les étapes de: https://docs.docker.com/desktop/windows/install/
+
+Sous Windows, c'est appelé Docker Desktop.
+
+### Installer Git
 
 On installe Chocolatey par les étapes suivantes: https://chocolatey.org/install
 (redémarrer votre console PS)
@@ -52,8 +58,14 @@ On installe Git par la commande suivante:
 choco install git
 ```
 
-On installe Docker-compose en suivant les étapes de: https://docs.docker.com/compose/install/#install-compose
-(section Windows Server est le plus rapide)
+De façon alternative, on peut passer par l'application native: https://gitforwindows.org/
+
+### Installer Docker-compose
+
+Si vous avez installer Docker Desktop, Docker-compose s'installe aussi.  Rien
+à faire!
+
+### Installer SSH
 
 On active la commande SSH en suivant les étapes décrites dans ce guide: https://www.howtogeek.com/336775/how-to-enable-and-use-windows-10s-built-in-ssh-commands/
 
@@ -70,7 +82,7 @@ cd docker-postgresql-pgadmin-mongo
 docker-compose up -d
 ```
 
-Si vous êtes sous Linux, il se peut que vous aillez à modifier le fichier
+Optionnel: Si vous êtes sous Linux, il se peut que vous aillez à modifier le fichier
 docker-compose.yml pour décommenter la ligne suivante:
 
 ```
