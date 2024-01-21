@@ -2,7 +2,7 @@
 
 Ce conteneur contient:
 
-- PostGreSQL 14.1
+- PostGreSQL 16.1
 - PGAdmin 4 (administration web de PG)
 - MongoDB
 
